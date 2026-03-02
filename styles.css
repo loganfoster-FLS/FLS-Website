@@ -2346,3 +2346,9 @@ css/* ─── START A PROJECT PAGE ─── */
     color: var(--text-subtle);
     border-radius: 4px;
 }
+
+@media (max-width: 768px) {
+    .start-wrap {
+        padding-top: 80px; /* Slightly less on mobile, but still plenty of room */
+    }
+}
