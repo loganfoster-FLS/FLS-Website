@@ -95,6 +95,7 @@ body::after {
     align-items: center;
     gap: 8px;
     list-style: none;
+
 }
 
 .top-nav-links li a, .top-nav-links li button {
@@ -1960,7 +1961,20 @@ body::after {
 @media (max-width: 820px) {
     :root { --nav-w: 200px; }
     #top-nav { padding: 0 24px; }
+    .top-nav-links {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+        scrollbar-width: none; /* Firefox */
+    }
+    .top-nav-links::-webkit-scrollbar { display: none; } /* Chrome/Safari */
     .inner-page { padding: 40px 24px 80px; }
+
+    /* ── How We Work: phase accordion fixes ── */
+    .phase-item.open .phase-body { max-height: 400px; }
+    .phase-d { padding-left: 28px; }
+    .phase-header { padding: 18px 20px; }
+
     .tier-header { flex-direction: column; gap: 16px; }
     .tier-pricing { text-align: left; }
     .tier-body { grid-template-columns: 1fr; gap: 24px; }
@@ -1971,6 +1985,29 @@ body::after {
     .portfolio-cards { grid-template-columns: 1fr; }
     .pc-featured { min-height: auto; }
     .home-stats { grid-template-columns: repeat(2, 1fr); }
+    
+    /* ── Portfolio card mobile fixes ── */
+    /* Fixed height causes content clipping — let cards size to content */
+    .portfolio-card { height: auto; min-height: 320px; transition: min-height 0.35s ease; }
+    .card-inner { height: auto; min-height: 320px; }
+    .card-front, .card-back {
+        position: relative;
+        min-height: 320px;
+        height: auto;
+        opacity: 1;
+        transition: opacity 0.25s ease;
+    }
+    /* Hide back by default — fade out */
+    .card-back { display: flex; opacity: 0; max-height: 0; overflow: hidden; pointer-events: none; transition: opacity 0.25s ease, max-height 0s ease 0.25s; }
+    /* On flip — fade front out, fade back in */
+    .portfolio-card.flipped .card-back { opacity: 1; max-height: 9999px; pointer-events: auto; transition: opacity 0.25s ease 0.1s, max-height 0s ease; }
+    .portfolio-card.flipped .card-front { opacity: 0; max-height: 0; overflow: hidden; pointer-events: none; transition: opacity 0.25s ease, max-height 0s ease 0.25s; }
+    /* Kill hover lift, hover glow & resting glow — all cause visual glitches on auto-height */
+    .portfolio-card:hover { transform: none; box-shadow: none; }
+    .portfolio-card:hover::before { opacity: 0.18; }
+    .pc-grace, .pc-kfg, .pc-detour, .pc-expo { box-shadow: none; }
+    .pc-inner { height: auto; }
+    .pc-desc { flex: none; }
 }
 
 css/* ─── START A PROJECT PAGE ─── */
