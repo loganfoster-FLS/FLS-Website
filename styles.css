@@ -2452,3 +2452,37 @@ css/* ─── START A PROJECT PAGE ─── */
     height: 100%;
     object-fit: contain;
 }
+
+/* Coming Soon Banner System */
+.tier-card.coming-soon {
+    position: relative;
+    overflow: hidden; /* Clips the banner */
+    opacity: 0.8;    /* Slight dimming to indicate unavailable status */
+    pointer-events: none; /* Disables clicks on the card */
+}
+
+.coming-soon-banner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--gold);
+    color: var(--bg);
+    padding: 6px 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    z-index: 10;
+    border-bottom-left-radius: 4px; /* Optional: rounds the inner corner slightly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-response-note {
+    font-size: 0.65rem;
+    color: var(--text-subtle);
+    margin-top: 12px;
+    font-style: italic;
+}
