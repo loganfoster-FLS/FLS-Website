@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@theme {
+  --color-violet: #4b20a8; --color-violet-deep: #2d0f6e; --color-violet-mid: #6b3fcc;
+  --color-violet-light: #8b63e8; --color-cyan: #00d4ff; --color-gold: #c9a84c;
+  --color-gold-light: #e8c875; --color-bg: #070412; --color-bg2: #0d0820;
+  --color-fg: #f0ecf8; --font-grotesk: 'Space Grotesk', sans-serif;
+  --font-jakarta: 'Plus Jakarta Sans', sans-serif; --font-inter: 'Inter', sans-serif;
+  --spacing-nav-w: 240px; --spacing-top-h: 68px;
+}
+@import "../styles.css";

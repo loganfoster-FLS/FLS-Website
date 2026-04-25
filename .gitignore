@@ -4,3 +4,4 @@
 *.gsheet
 *.gslides
 node_modules/
+dist/

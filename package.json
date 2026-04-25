@@ -1,0 +1,1 @@
+{"name":"fls-website","version":"1.0.0","private":true,"scripts":{"dev":"vite","build":"vite build","preview":"vite preview"},"devDependencies":{"@tailwindcss/vite":"^4.1.0","@types/node":"^25.6.0","tailwindcss":"^4.1.0","typescript":"^5.8.0","vite":"^6.3.0"}}
